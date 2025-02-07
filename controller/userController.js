@@ -15,6 +15,24 @@ const create = async (req, res, next) => {
     }
 }
 
+
+const get = async (req, res, next) => {
+    try {
+        
+        const user = req.user
+
+        res.status(200).json({
+            code : 200,
+            message : "OK",
+            data : user
+        })
+
+    } catch (error) {
+        next(error)
+    }
+}
+
 module.exports = {
-    create
+    create,
+    get
 }
